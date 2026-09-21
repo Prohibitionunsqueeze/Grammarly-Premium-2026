@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+        }
+
+        .container {
+            width: 700px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .expense {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #summary {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Expense Tracker</h1>
+
+    <div class="expense">
+        <span>Food</span>
+        <span>$42.50</span>
+    </div>
+
+    <div class="expense">
+        <span>Transport</span>
+        <span>$18.30</span>
+    </div>
+
+    <div class="expense">
+        <span>Books</span>
+        <span>$27.90</span>
+    </div>
+
+    <div class="expense">
+        <span>Internet</span>
+        <span>$35.00</span>
+    </div>
+
+    <button onclick="calculateTotal()">
+        Calculate Total
+    </button>
+
+    <div id="summary"></div>
+
+</div>
+
+<script>
+function calculateTotal() {
+
+    const expenses = [42.50, 18.30, 27.90, 35.00];
+
+    const total = expenses.reduce(function(sum, value) {
+        return sum + value;
+    }, 0);
+
+    document.getElementById("summary").textContent =
+        "Total Expenses: $" + total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
